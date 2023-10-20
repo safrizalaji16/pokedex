@@ -3,6 +3,7 @@ import bgImg from "../../../public/Pokeball_card.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import capitalizeName from "@/helpers/CapitalizeName";
+import { toast } from "react-toastify";
 
 interface CardProps {
   pokemon: any;
@@ -21,8 +22,8 @@ export const Card: React.FC<CardProps> = ({ pokemon }) => {
         `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
       );
       setPokemonData(response.data);
-    } catch (error) {
-      console.error("Gagal mengambil data Pokemon:", error);
+    } catch (error: any) {
+      toast.error("Gagal mengambil data Pokemon");
     }
   };
 

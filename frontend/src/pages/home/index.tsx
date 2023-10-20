@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BaseMain } from "@/templates/Main";
 import axios from "axios";
 import { Card } from "@/components/Card";
+import { toast } from "react-toastify";
 
 const Home = () => {
   const apiUrl = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=10";
@@ -15,8 +16,8 @@ const Home = () => {
       setPokemonData(response.data.results);
       setNextPage(response.data.next);
       setPreviousPage(response.data.previous);
-    } catch (error) {
-      console.error("Gagal mengambil data Pokemon:", error);
+    } catch (error: any) {
+      toast.error("Gagal mengambil data Pokemon");
     }
   };
 
