@@ -7,6 +7,22 @@ const axios = require("axios");
 const { createCoreController } = require("@strapi/strapi").factories;
 
 module.exports = createCoreController("api::pokemon.pokemon", ({ strapi }) => ({
+  async searchPokemonByName(ctx) {
+    try {
+      const { search } = ctx.query;
+      const pokemon = await strapi.db.query("api::pokemon.pokemon").findMany({
+        where: {
+          name: {
+            $containsi: search,
+          },
+        },
+      });
+
+      return pokemon;
+    } catch (error) {
+      console.log(error);
+    }
+  },
   async getPokemonByName(ctx) {
     try {
       const { name } = ctx.query;

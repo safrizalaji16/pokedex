@@ -7,6 +7,11 @@ module.exports = {
     },
     {
       method: "GET",
+      path: "/pokemon/searchPokemonByName",
+      handler: "pokemon.searchPokemonByName",
+    },
+    {
+      method: "GET",
       path: "/pokemon/getPokemonByName",
       handler: "pokemon.getPokemonByName",
     },
