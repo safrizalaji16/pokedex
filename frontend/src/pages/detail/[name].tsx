@@ -53,7 +53,7 @@ const Detail = () => {
   const getPokemon = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:1337/api/pokemon/getPokemonByName?name=${name}`
+        `https://radiant-memory-74a112d52a.strapiapp.com/api/pokemon/getPokemonByName?name=${name}`
       );
       setPokemonData(data.detail);
     } catch (error: any) {

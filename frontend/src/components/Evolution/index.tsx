@@ -36,7 +36,7 @@ export const Evolution = ({ name, type }: any) => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:1337/api/pokemon/getAllEvolutions?name=${name}`
+        `https://radiant-memory-74a112d52a.strapiapp.com/api/pokemon/getAllEvolutions?name=${name}`
       );
 
       setEvolutions(data);

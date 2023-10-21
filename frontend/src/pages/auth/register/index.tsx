@@ -20,7 +20,7 @@ const Login = () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "http://localhost:1337/api/auth/local/register",
+        "https://radiant-memory-74a112d52a.strapiapp.com/api/auth/local/register",
         {
           username,
           email,

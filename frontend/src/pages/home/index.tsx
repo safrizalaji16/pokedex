@@ -15,7 +15,7 @@ const Home = () => {
     try {
       setLoading(true);
       const { data }: any = await axios.get(
-        `http://localhost:1337/api/pokemon/getAllPokemon?limit=10&offset=${offset}`
+        `https://radiant-memory-74a112d52a.strapiapp.com/api/pokemon/getAllPokemon?limit=10&offset=${offset}`
       );
 
       setPokemonData(data);
@@ -31,7 +31,7 @@ const Home = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:1337/api/pokemon/searchPokemonByName?search=${searchQuery}`
+        `https://radiant-memory-74a112d52a.strapiapp.com/api/pokemon/searchPokemonByName?search=${searchQuery}`
       );
 
       setPokemonData(data);
