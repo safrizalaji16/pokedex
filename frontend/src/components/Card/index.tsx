@@ -60,7 +60,7 @@ export const Card: React.FC<CardProps> = ({ pokemon }) => {
 
   return (
     <div
-      className="relative bg-white p-2 rounded shadow-md w-36 h-32 bg-white p-4 rounded-xl shadow-md"
+      className="bg-white p-2 rounded shadow-md w-36 h-32 bg-white p-4 rounded-xl shadow-md"
       style={cardStyle}
       onClick={handleCardClick}
     >
