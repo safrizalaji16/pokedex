@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pokemons",
+  "info": {
+    "singularName": "pokemon",
+    "pluralName": "pokemons",
+    "displayName": "Pokemon",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "detail": {
+      "type": "json",
+      "required": true,
+      "private": true
+    }
+  }
+}
