@@ -1,7 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 import { AppConfig } from "@/utils/AppConfig";
-import { Providers } from "@/stores/provider";
 
 class MyDocument extends Document {
   render() {
@@ -9,9 +8,7 @@ class MyDocument extends Document {
       <Html lang={AppConfig.locale}>
         <Head />
         <body>
-          <Providers>
-            <Main />
-          </Providers>
+          <Main />
           <NextScript />
         </body>
       </Html>

@@ -52,10 +52,10 @@ const Detail = () => {
 
   const getPokemon = async () => {
     try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${name}`
+      const { data } = await axios.get(
+        `http://localhost:1337/api/pokemon/getPokemonByName?name=${name}`
       );
-      setPokemonData(response.data);
+      setPokemonData(data.detail);
     } catch (error: any) {
       toast.error("Gagal mengambil data Pokemon");
     }
@@ -64,7 +64,6 @@ const Detail = () => {
   useEffect(() => {
     getPokemon();
   }, [name]);
-  console.log(pokemonData, "ASASF");
 
   return (
     <div style={cardStyle} className="min-h-screen">

@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import capitalizeName from "@/helpers/CapitalizeName";
+import Loader from "../Loader";
 
 export const Evolution = ({ name, type }: any) => {
   const [evolutions, setEvolutions] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
   const pokemonColors: any = {
     normal: "#B5B9C4",
     fighting: "#EB4971",
@@ -32,24 +34,16 @@ export const Evolution = ({ name, type }: any) => {
 
   const getEvolutions = async () => {
     try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon-species/${name}`
+      setLoading(true);
+      const { data } = await axios.get(
+        `http://localhost:1337/api/pokemon/getAllEvolutions?name=${name}`
       );
 
-      const evo: any = await axios.get(response?.data.evolution_chain.url);
-
-      const collectEvolutions: any = (chain: any, result: any = []) => {
-        result.push(chain.species.name);
-        if (chain.evolves_to && chain.evolves_to.length > 0) {
-          return collectEvolutions(chain.evolves_to[0], result);
-        }
-        return result;
-      };
-
-      const evolutionNames = collectEvolutions(evo.data.chain);
-      setEvolutions(evolutionNames);
+      setEvolutions(data);
     } catch (error: any) {
       toast.error("Gagal mengambil data Pokemon");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -60,6 +54,7 @@ export const Evolution = ({ name, type }: any) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex mt-3 flex-wrap">
+        {loading && <Loader />}
         {evolutions?.map((el: any, index: number) => (
           <div
             key={index}
