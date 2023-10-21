@@ -1,9 +1,7 @@
 import { useRouter } from "next/router";
 import bgImg from "../../../public/Pokeball_card.png";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import capitalizeName from "@/helpers/CapitalizeName";
-import { toast } from "react-toastify";
 
 interface CardProps {
   pokemon: any;
@@ -16,19 +14,8 @@ export const Card: React.FC<CardProps> = ({ pokemon }) => {
   };
   const [pokemonData, setPokemonData] = useState<any>(null);
 
-  const getPokemonByName = async () => {
-    try {
-      const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
-      );
-      setPokemonData(response.data);
-    } catch (error: any) {
-      toast.error("Gagal mengambil data Pokemon");
-    }
-  };
-
   useEffect(() => {
-    getPokemonByName();
+    setPokemonData(pokemon.detail);
   }, [pokemon]);
 
   const pokemonColors: any = {

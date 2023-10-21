@@ -33,7 +33,7 @@ export const Evolution = ({ name, type }: any) => {
   const getEvolutions = async () => {
     try {
       const response = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon-species/${name}`
+        `http://localhost:1337/api/pokemon/getAllEvolutions?name=${name}`
       );
 
       const evo: any = await axios.get(response?.data.evolution_chain.url);
