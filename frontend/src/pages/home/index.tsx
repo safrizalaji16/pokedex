@@ -16,7 +16,6 @@ const Home = () => {
       const response: any = await axios.get(
         `http://localhost:1337/api/pokemon/getAllPokemon?limit=10&offset=${offset}`
       );
-      console.log(response);
 
       setPokemonData(response.data);
     } catch (error: any) {
