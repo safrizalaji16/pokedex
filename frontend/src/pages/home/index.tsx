@@ -52,7 +52,7 @@ const Home = () => {
 
   useEffect(() => {
     getPokemon();
-  }, [offset]);
+  }, [offset, getPokemon]);
 
   return (
     <BaseMain>

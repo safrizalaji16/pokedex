@@ -21,7 +21,7 @@ export const Header = () => {
         router.push("/auth/login");
       }
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className="flex items-center justify-between mx-4 my-4">
