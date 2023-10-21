@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import capitalizeName from "@/helpers/CapitalizeName";
@@ -32,7 +32,8 @@ export const Evolution = ({ name, type }: any) => {
     backgroundColor: type ? pokemonColors[type] : "#FFFFFF",
   };
 
-  const getEvolutions = async () => {
+  
+  const getEvolutions = useCallback(async () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
@@ -45,11 +46,11 @@ export const Evolution = ({ name, type }: any) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [name]);
 
   useEffect(() => {
     getEvolutions();
-  }, []);
+  }, [getEvolutions]);
 
   return (
     <div className="flex items-center justify-between">

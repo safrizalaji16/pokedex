@@ -46,7 +46,7 @@ const Login = () => {
       <h1 className="text-3xl font-bold text-shadow">Welcome!</h1>
       <span>Please login below.</span>
       <span>
-        Don't have an account yet? You can{" "}
+        {"Don't have an account yet? You can"}
         <a
           className="underline text-primary ml-0"
           onClick={() => router.push("/auth/register")}

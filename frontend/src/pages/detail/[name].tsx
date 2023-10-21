@@ -63,7 +63,7 @@ const Detail = () => {
 
   useEffect(() => {
     getPokemon();
-  }, [name]);
+  }, [name, getPokemon]);
 
   return (
     <div style={cardStyle} className="min-h-screen">

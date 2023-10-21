@@ -21,7 +21,7 @@ export const Header = () => {
         router.push("/auth/login");
       }
     }
-  }, []);
+  }, [router]);
 
   return (
     <div className="flex items-center justify-between mx-4 my-4">
@@ -47,7 +47,7 @@ export const Header = () => {
           </button>
         </div>
         <div
-          className={`origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-opacity-5 ${
+          className={`origin-top-right relative right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-opacity-5 ${
             isOpen ? "" : "hidden"
           }`}
           role="menu"
