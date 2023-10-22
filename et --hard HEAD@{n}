@@ -1,0 +1,17 @@
+[33m9be9509[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD
+[33m9be9509[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{1}: pull origin main: Fast-forward
+[33m6b64dfc[m[33m ([m[1;31morigin/dev[m[33m)[m HEAD@{2}: checkout: moving from main to dev
+[33m9be9509[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{3}: commit: feat: add deployed backend
+[33m4637b7c[m HEAD@{4}: pull origin main: Fast-forward
+[33m0f33776[m HEAD@{5}: checkout: moving from dev to main
+[33m6b64dfc[m[33m ([m[1;31morigin/dev[m[33m)[m HEAD@{6}: commit: logic test
+[33mc706346[m HEAD@{7}: commit: feat: search
+[33m0321dd7[m HEAD@{8}: commit: fix: bugs
+[33m82eae4f[m HEAD@{9}: commit: delete logic test
+[33mdc1570e[m HEAD@{10}: commit: wiring with third party api
+[33m642d9a4[m HEAD@{11}: commit: feat: wiring with backend
+[33mdd56a67[m HEAD@{12}: commit: feat: wiring
+[33mb885f3e[m HEAD@{13}: commit: feat: user
+[33m57b5918[m HEAD@{14}: commit: feat: evolution
+[33m22263b0[m HEAD@{15}: checkout: moving from main to dev
+[33m0f33776[m HEAD@{16}: clone: from https://github.com/safrizalaji16/pokedex.git
