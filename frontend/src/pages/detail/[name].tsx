@@ -8,11 +8,14 @@ import { BaseStats } from "@/components/BaseStats";
 import { Moves } from "@/components/Moves";
 import { Evolution } from "@/components/Evolution";
 import { toast } from "react-toastify";
+import Image from "next/image";
+import Loader from "@/components/Loader";
 
 const Detail = () => {
   const router = useRouter();
   const { name } = router.query;
   const [pokemonData, setPokemonData] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
   const [activeMenuItem, setActiveMenuItem] = useState("About");
 
   const pokemonColors: any = {
@@ -52,18 +55,21 @@ const Detail = () => {
 
   const getPokemon = async () => {
     try {
+      setLoading(true);
       const { data } = await axios.get(
         `https://radiant-memory-74a112d52a.strapiapp.com/api/pokemon/getPokemonByName?name=${name}`
       );
       setPokemonData(data.detail);
     } catch (error: any) {
       toast.error("Gagal mengambil data Pokemon");
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     getPokemon();
-  }, [name, getPokemon]);
+  }, [name]);
 
   return (
     <div style={cardStyle} className="min-h-screen">
@@ -99,12 +105,16 @@ const Detail = () => {
             </h1>
           </div>
         </div>
-        <img
-          className="w-48 h-48 mx-auto block xl:w-96 xl:h-96"
+        {loading && <Loader />}
+
+        <Image
+          width={150}
+          height={150}
+          className="mx-auto block xl:w-96 xl:h-96"
           src={pokemonData?.sprites.other["official-artwork"]["front_default"]}
           alt={pokemonData?.name}
         />
-        <div className="bg-white min-h-[calc(60vh-64px)] rounded-t-xl flex justify-center">
+        <div className="bg-white min-h-[calc(75vh-64px)] rounded-t-xl flex justify-center">
           <div className="p-4 mx-2">
             <div className="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
               <ul className="flex flex-no-wrap -mb-px">

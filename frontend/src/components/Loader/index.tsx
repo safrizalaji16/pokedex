@@ -1,9 +1,11 @@
-import { MdHourglassTop } from 'react-icons/md';
+import { MdHourglassTop } from "react-icons/md";
 
 const Loader = () => {
   return (
-    <div className="flex justify-center">
-      <MdHourglassTop size={36} className="animate-spin" />
+    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+      <div className="text-2xl text-gray-700 animate-spin">
+        <MdHourglassTop />
+      </div>
     </div>
   );
 };

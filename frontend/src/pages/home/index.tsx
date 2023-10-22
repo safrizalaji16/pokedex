@@ -28,17 +28,22 @@ const Home = () => {
 
   const handleSearchSubmit = async (e: any) => {
     e.preventDefault();
-    try {
-      setLoading(true);
-      const { data } = await axios.get(
-        `https://radiant-memory-74a112d52a.strapiapp.com/api/pokemon/searchPokemonByName?search=${searchQuery}`
-      );
 
-      setPokemonData(data);
-    } catch (error) {
-      toast.error("Failed to search Pokémon");
-    } finally {
-      setLoading(false);
+    if (!searchQuery) {
+      toast.error("Please enter a valid search query.");
+    } else {
+      try {
+        setLoading(true);
+        const { data } = await axios.get(
+          `https://radiant-memory-74a112d52a.strapiapp.com/api/pokemon/searchPokemonByName?search=${searchQuery}`
+        );
+
+        setPokemonData(data);
+      } catch (error) {
+        toast.error("Failed to search Pokémon");
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -52,7 +57,7 @@ const Home = () => {
 
   useEffect(() => {
     getPokemon();
-  }, [offset, getPokemon]);
+  }, [offset]);
 
   return (
     <BaseMain>
