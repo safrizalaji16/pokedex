@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import Auth from "@/templates/Auth";
 import Loader from "@/components/Loader";
 
-const Login = () => {
+const Register = () => {
   const router = useRouter();
 
   const [email, setEmail] = useState("");
@@ -85,11 +85,11 @@ const Login = () => {
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
           onClick={handleSubmit}
         >
-          Login
+          Register
         </button>
       </div>
     </Auth>
   );
 };
 
-export default Login;
+export default Register;

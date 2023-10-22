@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import bgImg from "../../../public/Pokeball_card.png";
 import { useEffect, useState } from "react";
 import capitalizeName from "@/helpers/CapitalizeName";
+import Image from "next/image";
+import bgPokemon from "../../../public/Pokeball_card.png";
 
 interface CardProps {
   pokemon: any;
@@ -89,23 +91,16 @@ export const Card: React.FC<CardProps> = ({ pokemon }) => {
               );
             })}
           </div>
-          <img
-            className="w-20 h-20"
+          <Image
             src={
               pokemonData?.sprites.other["official-artwork"]["front_default"]
             }
+            width={85}
+            height={85}
             alt={pokemon.name}
           />
         </div>
       </div>
-      <div
-        className="absolute bottom-0 right-0 z-10"
-        style={{
-          backgroundImage: `url(${bgImg})`,
-          width: "110px",
-          height: "110px",
-        }}
-      />
     </div>
   );
 };
