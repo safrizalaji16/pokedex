@@ -21,7 +21,7 @@ export const Header = () => {
         router.push("/auth/login");
       }
     }
-  }, [router]);
+  }, []);
 
   return (
     <div className="flex items-center justify-between mx-4 my-4">
@@ -39,7 +39,7 @@ export const Header = () => {
             onClick={() => setIsOpen(!isOpen)}
           >
             <p className="text-lg font-semibold flex items-center">
-              {username || "Admin"}
+              {username}
               <span>
                 <MdExpandMore className="m-1" />
               </span>

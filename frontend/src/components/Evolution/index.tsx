@@ -32,8 +32,7 @@ export const Evolution = ({ name, type }: any) => {
     backgroundColor: type ? pokemonColors[type] : "#FFFFFF",
   };
 
-  
-  const getEvolutions = useCallback(async () => {
+  const getEvolutions = async () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
@@ -46,11 +45,11 @@ export const Evolution = ({ name, type }: any) => {
     } finally {
       setLoading(false);
     }
-  }, [name]);
+  };
 
   useEffect(() => {
     getEvolutions();
-  }, [getEvolutions]);
+  }, []);
 
   return (
     <div className="flex items-center justify-between">
